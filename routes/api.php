@@ -31,6 +31,10 @@ Route::prefix('roles')->group(function() {
     Route::delete('{id}', [\App\Http\Controllers\RoleController::class, 'delete']);
 });
 
+Route::prefix('servers')->group(function() {
+    Route::get('auth', [\App\Http\Controllers\ServerController::class, 'auth']);
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
