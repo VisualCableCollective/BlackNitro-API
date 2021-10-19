@@ -21,4 +21,16 @@ class RoleController extends Controller
 
         return response("", 204);
     }
+
+    public function create(Request $request) {
+        $data = $request->validate([
+            'name' => 'required',
+        ]);
+
+        auth()->user()->createdRoles()->create([
+            "name" => $data["name"]
+        ]);
+
+        return response("", 201);
+    }
 }
