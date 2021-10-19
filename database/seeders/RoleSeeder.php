@@ -18,7 +18,9 @@ class RoleSeeder extends Seeder
         if (!$foundAdminRole) {
             Role::create([
                 'name' => 'Admin',
-                'creator_id' => 0
+                'creator_id' => 0,
+                'show_users' => true,
+                'modify_roles' => true
             ]);
         }
     }
