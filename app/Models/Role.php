@@ -16,6 +16,18 @@ class Role extends Model
      */
     protected $fillable = [
         'name',
+        'show_users',
+        'modify_roles',
+    ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'show_users' => false,
+        'modify_roles' => false,
     ];
 
     public function creator() {
