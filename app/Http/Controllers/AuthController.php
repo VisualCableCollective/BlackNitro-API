@@ -11,13 +11,12 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
 
-        $data = $request->all();
         $check = $this->create($data);
 
         return response()->json([
